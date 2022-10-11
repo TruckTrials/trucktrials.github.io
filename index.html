@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Truck Trials Unblocked</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-iphone.png" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-iphone.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-ipad.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-iphone-retina-display.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-ipad-retina-display.png" />
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<script>
+
+    window.addEventListener("keydown", function(e) {
+        // space and arrow keys
+        if([8].indexOf(e.keyCode) > -1) {
+            e.preventDefault();
+        }
+    }, false);
+
+    // Package-ID
+    window.famobi_gameID = "truck-trials";
+    window.famobi_gameJS = [
+        "javascripts/dlga.js",
+        "javascripts/gl-matrix-min.js",
+        "javascripts/webgl-utils.js",
+        "javascripts/p2.min.js",
+        "javascripts/famobi_bridge.js",
+        "javascripts/compressed.js",
+        function(){
+            DLG_WebGLStart();
+
+            window.famobi_Pref_User_Sound = null;
+            window.famobi_Pref_User_Music = null;
+
+            var hidden, visibilityChange;
+            if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+                hidden = "hidden";
+                visibilityChange = "visibilitychange";
+            } else if (typeof document.mozHidden !== "undefined") {
+                hidden = "mozHidden";
+                visibilityChange = "mozvisibilitychange";
+            } else if (typeof document.msHidden !== "undefined") {
+                hidden = "msHidden";
+                visibilityChange = "msvisibilitychange";
+            } else if (typeof document.webkitHidden !== "undefined") {
+                hidden = "webkitHidden";
+                visibilityChange = "webkitvisibilitychange";
+            }
+
+            // Handle page visibility change
+            document.addEventListener(visibilityChange, handleVisibilityChange, false);
+
+            // If the page is hidden, pause the video;
+            // if the page is shown, play the video
+            function handleVisibilityChange() {
+                if (document[hidden]) {
+                    window.famobi_mute();
+                } else {
+                    window.famobi_unmute();
+                }
+            }
+
+            window.famobi_onPauseRequested = function(){
+                window.famobi_paused = true;
+                window.famobi_mute();
+            };
+
+            window.famobi_onResumeRequested = function(){
+                window.famobi_paused = false;
+                window.famobi_unmute();
+            };
+
+            window.famobi_mute = function() {
+
+                if((window.famobi_Pref_User_Sound = Pref_User_Sound)) {
+                    v144.suspend();
+                }
+
+                if((window.famobi_Pref_User_Music = v76)) {
+                    f143();
+                }
+            };
+
+            window.famobi_unmute = function() {
+
+                if(window.famobi_paused) return;
+
+                if(window.famobi_Pref_User_Sound) {
+                    v144.resume();
+                }
+
+                if(window.famobi_Pref_User_Music) {
+                    if(v76) f144 (-1);
+                }
+            };
+
+            window.famobi_onMuteRequested = function() {
+                Pref_User_Sound = 0;
+                v144.suspend();
+
+                v76 = 0;
+                f143();
+
+                f273("UserSound", Pref_User_Sound);
+                f273("UserMusic", v76);
+            }
+
+            window.famobi_onUnmuteRequested = function() {
+                Pref_User_Sound = 1;
+                v144.resume();
+
+                v76 = 1;
+                f144 (-1);
+
+                f273("UserSound", Pref_User_Sound);
+                f273("UserMusic", v76);
+            }
+        }
+    ];
+
+    (function (document, url, fgJS, firstJS) {
+            fgJS = document.createElement('script');
+            firstJS = document.getElementsByTagName('script')[0];
+            fgJS.src = url + encodeURIComponent(document.location.href);
+            firstJS.parentNode.insertBefore(fgJS, firstJS);
+    })(document, 'html5games/gameapi/v1.js?e=');
+</script>
+<meta property="og:image" content="truck-trials.png" />
+</head>
+
+<body>
+    <div id="canvas-wrapper">
+        <canvas class="WebGLDIV" id="dlg-webgl-canvas"></canvas>
+    </div>
+</body>
+</html>
+
+
