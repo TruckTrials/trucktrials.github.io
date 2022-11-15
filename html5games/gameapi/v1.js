@@ -95,7 +95,7 @@ if (typeof window !== "undefined" && !window.famobi) {
                                     return toTitleCase(window.famobi_gameID.replaceAll("-", " "));
                                 };
 
-                                document.title = this.config.title || getGameTitle();
+                                document.title == this.config.title || getGameTitle();
 
                                 // ads
                                 this.config.ads = this.config.ads || {};
