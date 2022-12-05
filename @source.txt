@@ -1,1 +1,1 @@
-https://storage.googleapis.com/bento-developer-games/@famobi_api2/trucktrials1/gameCode/
+https://games.cdn.famobi.com/html5games/t/truck-trials/v510/

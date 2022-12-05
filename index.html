@@ -37,13 +37,7 @@
 
     // Package-ID
     window.famobi_gameID = "truck-trials";
-    window.famobi_gameJS = [
-        "javascripts/dlga.js",
-        "javascripts/gl-matrix-min.js",
-        "javascripts/webgl-utils.js",
-        "javascripts/p2.min.js",
-        "javascripts/famobi_bridge.js",
-        "javascripts/compressed.js",
+    window.famobi_gameJS = ['js/all.js',
         function(){
             DLG_WebGLStart();
 
@@ -111,28 +105,6 @@
                     if(v76) f144 (-1);
                 }
             };
-
-            window.famobi_onMuteRequested = function() {
-                Pref_User_Sound = 0;
-                v144.suspend();
-
-                v76 = 0;
-                f143();
-
-                f273("UserSound", Pref_User_Sound);
-                f273("UserMusic", v76);
-            }
-
-            window.famobi_onUnmuteRequested = function() {
-                Pref_User_Sound = 1;
-                v144.resume();
-
-                v76 = 1;
-                f144 (-1);
-
-                f273("UserSound", Pref_User_Sound);
-                f273("UserMusic", v76);
-            }
         }
     ];
 
@@ -141,9 +113,8 @@
             firstJS = document.getElementsByTagName('script')[0];
             fgJS.src = url + encodeURIComponent(document.location.href);
             firstJS.parentNode.insertBefore(fgJS, firstJS);
-    })(document, 'html5games/gameapi/v1.js?e=');
+    })(document, 'js/start.js?e=');
 </script>
-<meta property="og:image" content="truck-trials.png" />
 </head>
 
 <body>
