@@ -386,7 +386,7 @@ fg_api.prototype.adsModule = function() {
 			if (self.adapters) {
 				self.adapters.add("consent", "platformLoaded", function(){
 					if (!M.stageFooter)
-						return; 
+						return;
 					faZepto(M.stageFooter).css({
 						opacity: "0",
 						transition: "opacity 1s"
@@ -1388,7 +1388,7 @@ fg_api.prototype.huaweiAdsModule = function() {
 							M.showVideoAd(continueToGame, true)
 						} else {
 							continueToGame();
-						}	
+						}
 					});
 			};
 
@@ -1434,7 +1434,7 @@ fg_api.prototype.huaweiAdsModule = function() {
 					friendlyName = "";
 					break;
 			}
-	
+
 			M.playBtnContainer = self.createElement("div", {
 				class:
 					"fg-click2play" +
@@ -1442,20 +1442,20 @@ fg_api.prototype.huaweiAdsModule = function() {
 					(detection.is.smartphone ? " smartphone" : ""),
 				style: "opacity: 0;transition: opacity 1s;"
 			});
-	
+
 			M.gameIcon = self.createElement("div", {
 				class: "fg-gameicon",
 				title: friendlyName
 			});
-	
+
 			M.branding = self.createElement("div", {
 				class: "fg-branding"
 			});
-	
+
 			var gameIconLoaded = Promise.resolve();
-	
+
 			if (typeof self.config.thumb !== "undefined") {
-	
+
 				// eslint-disable-next-line no-unused-vars
 				gameIconLoaded = new Promise(function(resolve, reject){
 					var nImg = document.createElement("img");
@@ -1467,7 +1467,7 @@ fg_api.prototype.huaweiAdsModule = function() {
 					nImg.onerror = resolve;
 					nImg.src = self.config.thumb;
 				});
-	
+
 				if (isInitialOverlay) {
 					M.branding.style.background =
 						'#000 url("' +
@@ -1487,13 +1487,13 @@ fg_api.prototype.huaweiAdsModule = function() {
 			});
 			M.playBtn.innerHTML =
 				'<div class="fg-click2play-loading"><span class="fg-click2play-loading-bounce1"></span><span class="fg-click2play-loading-bounce2"></span><span class="fg-click2play-loading-bounce3"></span></div>';
-	
+
 			M.privacyInfo = self.createElement("div", {
 				class: "privacy-info"
 			});
-	
+
 			M.privacyInfo.innerHTML = self.translate("api.privacy_info") + self.translate("api.privacy_link");
-	
+
 			M.stageHeader = self.createElement("div", {
 				class: "fg-click2play-stage-header"
 			});
@@ -1503,7 +1503,7 @@ fg_api.prototype.huaweiAdsModule = function() {
 			M.stageFooter = self.createElement("div", {
 				class: "fg-click2play-stage-footer"
 			});
-	
+
 			M.playBtnContainer.appendChild(M.playBtnStage);
 			M.playBtnStage.appendChild(M.stageHeader);
 			M.playBtnStage.appendChild(M.gameDetails);
@@ -1517,7 +1517,7 @@ fg_api.prototype.huaweiAdsModule = function() {
 				if (self.adapters) {
 					self.adapters.add("consent", "platformLoaded", function(){
 						if (!M.stageFooter)
-							return; 
+							return;
 						faZepto(M.stageFooter).css({
 							opacity: "0",
 							transition: "opacity 1s"
@@ -1529,7 +1529,7 @@ fg_api.prototype.huaweiAdsModule = function() {
 					})
 				}
 			}
-	
+
 			gameIconLoaded.then(resolve, reject);
 		});
 	};
@@ -1595,7 +1595,7 @@ fg_api.prototype.huaweiAdsModule = function() {
 					resolve();
 			}, false);
 		});
-		
+
 		Promise.race([
 			self.wait(3000),
 			Promise.all([documentLoaded, overlayReady])
@@ -3396,7 +3396,7 @@ fg_api.prototype.adaptersModule = function() {
 				}]
 			},
 			request: {
-				/* attention: these request adapters are only used in specific environments (e.g. Famobi apps) */ 
+				/* attention: these request adapters are only used in specific environments (e.g. Famobi apps) */
 
 				startGame: [function() {
 					/* triggered once after loading all assets, indicates when the game should start */
@@ -3523,7 +3523,7 @@ fg_api.prototype.adaptersModule = function() {
 				!(typeof this.adapters[section][subsection] == "object")) {
 			return false;
 		}
-		
+
 		var adapter = this.adapters[section][subsection];
 
 		if (adapter.runOnce && adapter.numRuns > 0) {
@@ -3539,7 +3539,7 @@ fg_api.prototype.adaptersModule = function() {
 					adapter.queue.length > adapter.queueLength) {
 				adapter.queue.shift();
 			}
-		} 
+		}
 
 		if (adapter.callbacks.length > 0) {
 			adapter.callbacks.forEach(function(callback) {
@@ -3587,9 +3587,9 @@ fg_api.prototype.requestsModule = function() {
 
 	requestsPrototype.init = function() {
     };
-    
+
     requestsPrototype.isAction = function(actionIdentifier) {
-        return typeof actionIdentifier === "string" && 
+        return typeof actionIdentifier === "string" &&
             (M.legitActionIdentifiers.indexOf(actionIdentifier) > -1)
 	};
 
@@ -3609,17 +3609,17 @@ fg_api.prototype.requestsModule = function() {
 			);
             return;
         }
-        
+
 		if (typeof callback !== "function")	{
 			console.warn(
 				"onRequest(): required param 'callback' has to be of type 'function'"
 			);
-            return;        
+            return;
         }
-        
+
 		self.adapters.add("request", actionIdentifier, callback);
     };
-    
+
     requestsPrototype.requestAction = function(actionIdentifier) {
 
         if (!self.adapters)	{
@@ -3696,7 +3696,7 @@ fg_api.prototype.consentModule = function() {
         switch (self.config.cmp) {
             case 'cookiepro':
             case 'default':
-                // activate CookiePro Cookies Consent Notice for famobi.com 
+                // activate CookiePro Cookies Consent Notice for famobi.com
                 M.initCookiePro();
                 break;
         }
@@ -6471,7 +6471,7 @@ if (typeof window !== "undefined" && !window.famobi_tracking) {
     !function(a, b) {
 
         var tracking = {
-            endpointUrl: 'js/null.js?https://data.html5games.com/',
+            endpointUrl: 'json/null.json?https://data.html5games.com/',
             game: '',
             uidStorageId: 'trackingUid',
             uid: null,
@@ -6543,13 +6543,13 @@ if (typeof window !== "undefined" && !window.famobi_tracking) {
 
                             log('tracking init - response', this.response);
 
-                            var data = JSON.parse(this.response).data;
-                            var splitTests = data.splitTests;
-                            storage.setItem(tracking.uidStorageId, data.uid);
+                            // var data = JSON.parse(this.response).data;
+                            // var splitTests = data.splitTests;
+                            // storage.setItem(tracking.uidStorageId, data.uid);
 
-                            log('tracking initialized - new user id received', data.uid);
+                            // log('tracking initialized - new user id received', data.uid);
 
-                            resolve(data.uid);
+                            // resolve(data.uid);
                         }
                     };
 
@@ -7431,7 +7431,7 @@ fg_api.prototype.geoModule = function() {
 		// define private vars
 		this.promise = null;
 		this.geolocationUrl =
-			"js/null.js?https://pro.ip-api.com/json/?key=0meDkSsHhF3MQK0&fields=2";
+			"json/null.json?https://pro.ip-api.com/json/?key=0meDkSsHhF3MQK0&fields=2";
 		this.geodata = {
 			countryCode: ""
 		};
@@ -7481,7 +7481,7 @@ fg_api.prototype.geoModule = function() {
 			setTimeout(reject, 10e3);
 			self.rest.get(M.geolocationUrl).then(function(result) {
 				if (!result || !result.countryCode) {
-					reject();
+					// reject();
 					return;
 				}
 				faZepto.extend(M.geodata, result);
@@ -7873,7 +7873,7 @@ fg_api.prototype.gameModule = function() {
 					return;
 				}
 				var currentScript = window.famobi_pregameJS.shift();
-				
+
 				if (currentScript instanceof Promise) {
 					currentScript.then(next, next);
 				} else if (typeof currentScript === "function") {
@@ -8175,7 +8175,7 @@ fg_api.prototype.setVolume = function(volume) {
         );
         return;
 	}
-	
+
 	this.audio.setVolume(volume);
 };
 
