@@ -26,6 +26,30 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E7D3EVY6HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E7D3EVY6HR');
+</script>
+
+<script>
+    window.onerror = function (errorMsg, url, lineNumber) {
+        // alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber);
+        gtag('event', 'error', {
+          'error': errorMsg,
+          'url': url,
+          'line': lineNumber,
+        });
+    }
+</script>
+
+<script src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js"></script>
+<script>Bugsnag.start({ apiKey: 'e4fa7dc7fe0f946c6b27ed13bce38581' })</script>
+
 <script>
 
     window.addEventListener("keydown", function(e) {
@@ -115,13 +139,23 @@
             firstJS.parentNode.insertBefore(fgJS, firstJS);
     })(document, 'js/start.js?e=');
 </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WDJMQJM');</script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDJMQJM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="canvas-wrapper">
         <canvas class="WebGLDIV" id="dlg-webgl-canvas"></canvas>
     </div>
 </body>
 </html>
-
-
